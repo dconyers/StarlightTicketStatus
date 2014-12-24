@@ -10,5 +10,12 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.10.6"
+  },
+  "repository" :
+  { "type" : "git"
+  , "url" : "https://github.com/dconyers/StarlightTicketStatus.git"
+  },
+  "devDependencies": {
+    "express-generator": "^4.9.0"
   }
 }
