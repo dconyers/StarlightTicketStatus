@@ -15,5 +15,7 @@
     "type": "git",
     "url": "https://github.com/dconyers/StarlightTicketStatus.git"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "mocha": "^2.1.0"
+  }
 }
