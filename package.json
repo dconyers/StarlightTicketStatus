@@ -9,7 +9,8 @@
   "author": "Doug Conyers",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.10.6"
+    "express": "^4.10.6",
+    "googleapis": "^1.0.22"
   },
   "repository": {
     "type": "git",
