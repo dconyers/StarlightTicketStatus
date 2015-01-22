@@ -6,7 +6,7 @@ var request = require('request');
 // Create the JWT client
 
 //google.options({proxy: 'http://127.0.0.1:8888'});
-var authClient = new google.auth.JWT("104336289544-qj5g3vcnab7geh3pqk7127mgfmor4nph@developer.gserviceaccount.com", "C:\\key.pem", null,
+var authClient = new google.auth.JWT("104336289544-qj5g3vcnab7geh3pqk7127mgfmor4nph@developer.gserviceaccount.com", "keys/key.pem", null,
   ['https://www.googleapis.com/auth/drive https://spreadsheets.google.com/feeds https://docs.google.com/feeds']);
   //['https://www.googleapis.com/auth/drive https://spreadsheets.google.com/feeds https://docs.google.com/feeds']);
 
