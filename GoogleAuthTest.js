@@ -91,7 +91,7 @@ function getFileContents(url, accesstoken) {
             "gid": 0
         },
         "headers":{
-            "Authorization": "Bearer " + accesstoken
+            "Authorization": "Bearer " + accesstoken,
         }
     }, function(err, response, body){
         if (err) {
@@ -108,7 +108,7 @@ function myHandler(json) {
     console.log("myHandler called!");
     debugger;
     json.table.rows.forEach(function(row) {
-        console.log(row.c[3].v);
+        console.log(row.c[0].v);
     });
 }
 
@@ -128,7 +128,8 @@ function getQuery(id, accesstoken) {
             "tqx": 'responseHandler:myHandler',
         },
         "headers":{
-            "Authorization": "Bearer " + accesstoken
+            "Authorization": "Bearer " + accesstoken,
+            "X-DataSource-Auth":"true"
         }
     }, function(err, response, body){
         if (err) {
@@ -140,7 +141,16 @@ function getQuery(id, accesstoken) {
             console.log("Body = %s", JSON.stringify(body));
 
             // TODO: DEC - I know this is bad form, bbut just trying to get this working.
+            debugger;
+/*
             eval(body);
+ */           
+            var obj = JSON.parse(
+                body.replace(/new Date\((\d+),(\d+),(\d+)\)/g, function(str, y, m, d) { return "\"" + y + "-" + m + "-" + d + "T06:00:00.000Z\""; })
+                .replace(/(,,)/g, function() { return ",null,"; })
+            );
+
+            myHandler(obj);
             //debugger;
         }
     });
