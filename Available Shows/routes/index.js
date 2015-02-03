@@ -13,7 +13,7 @@ router.get('/', function (req, res) {
     
     Q.nfcall(spreadsheetAccess.getJSONShowData).then(function (jsonData) {
         logger.trace("successfully retrieved JSON data");
-        res.render('index', { title: 'Express', cool: jsonData });
+        res.render('index', { title: 'Express', showData: jsonData });
     }).catch(function (error) {
         logger.error("Got error trying to render", error);
     }).done();

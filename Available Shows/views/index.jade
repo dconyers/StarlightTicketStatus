@@ -3,4 +3,12 @@
 block content
   h1= title
   p Doug Welcome to #{title}
-  p Doug is #{cool}
+  p Doug is #{JSON.stringify(showData)}
+
+  span.glyphicon.glyphicon-search
+  ul
+    each show in showData.table.rows
+        li Show is #{show.c[5].v}
+        ul
+            each showelement in show.c
+                li Detail = #{showelement.v}

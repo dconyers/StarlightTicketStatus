@@ -1,4 +1,9 @@
-﻿var express = require('express');
+﻿var log4js = require("log4js");
+var log4jsLogger = log4js.getLogger();
+
+
+
+var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
@@ -22,7 +27,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(require('stylus').middleware(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
-
+app.use('/bootstrap', express.static(path.join(__dirname, 'node_modules/bootstrap/dist')));
+log4jsLogger.trace('static path is %s', path.join(__dirname, 'node_modules/bootstrap/dist'));
 app.use('/', routes);
 app.use('/users', users);
 
